@@ -3,83 +3,67 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Meyanak | Jejaring Sosial</title>
-  <meta name="description" content="Meyanak, jejaring sosial modern untuk terhubung, berbagi, dan berkomunitas.">
+  <title>Meyanak</title>
+  <meta name="description" content="Meyanak, jejaring sosial untuk terhubung, berbagi, dan berkomunikasi secara publik maupun privat.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div id="loading" class="loading-screen"><div class="spinner"></div><p>Memuat Meyanak…</p></div>
+
   <header class="topbar">
     <div class="brand-wrap">
-      <button class="brand" aria-label="Meyanak">M</button>
-      <div class="search">
-        <span>⌕</span><input id="globalSearch" placeholder="Cari di Meyanak" aria-label="Cari">
-      </div>
+      <button class="brand" id="brandBtn" aria-label="Meyanak">M</button>
+      <div class="search"><span>⌕</span><input id="globalSearch" placeholder="Cari pengguna atau postingan" aria-label="Cari"></div>
     </div>
     <nav class="topnav" aria-label="Navigasi utama">
       <button class="nav-btn active" data-view="home">⌂<small>Beranda</small></button>
-      <button class="nav-btn" data-view="friends">♧<small>Teman</small></button>
-      <button class="nav-btn" data-view="groups">◉<small>Komunitas</small></button>
-      <button class="nav-btn" data-view="notifications">♢<small>Notifikasi</small><b id="notifBadge">3</b></button>
+      <button class="nav-btn" data-view="friends">♧<small>Pengguna</small></button>
+      <button class="nav-btn" data-view="messages">✉<small>Pesan</small></button>
+      <button class="nav-btn" data-view="saved">🔖<small>Tersimpan</small></button>
     </nav>
     <div class="account">
-      <button class="avatar avatar-me">D</button>
-      <span>Dilan</span>
+      <button class="avatar avatar-me" id="headerAvatar">?</button>
+      <span id="headerName">Tamu</span>
       <button class="circle-btn" id="menuBtn">⋯</button>
     </div>
   </header>
 
   <main class="layout">
     <aside class="left-col">
-      <button class="profile-link" data-view="profile">
-        <span class="avatar avatar-me">D</span><strong>Dilan</strong>
-      </button>
-      <button class="side-link" data-view="friends">♧ <span>Teman</span></button>
-      <button class="side-link" data-view="groups">◉ <span>Komunitas</span></button>
-      <button class="side-link" data-view="saved">▣ <span>Tersimpan</span></button>
-      <button class="side-link" data-view="events">◷ <span>Kegiatan</span></button>
-      <button class="side-link" data-view="market">▤ <span>Jelajah</span></button>
+      <button class="profile-link" data-view="profile"><span class="avatar avatar-me" id="sideAvatar">?</span><strong id="sideName">Profil</strong></button>
+      <button class="side-link" data-view="home">⌂ <span>Beranda</span></button>
+      <button class="side-link" data-view="friends">👥 <span>Pengguna</span></button>
+      <button class="side-link" data-view="messages">✉ <span>Pesan privat</span></button>
+      <button class="side-link" data-view="saved">🔖 <span>Tersimpan</span></button>
+      <button class="side-link" data-view="profile">⚙ <span>Profil & akun</span></button>
       <hr>
-      <h4>Pintasan</h4>
-      <button class="shortcut"><i></i> Komunitas Pelajar</button>
-      <button class="shortcut"><i></i> Forum Buku & Gagasan</button>
-      <button class="shortcut"><i></i> Ruang Diskusi</button>
-      <p class="legal">Privasi · Ketentuan · Bantuan<br>© 2026 Meyanak</p>
+      <h4>Fitur Meyanak</h4>
+      <p class="legal">Publik maupun privat · Media · Komentar · Like · Bagikan · RLS<br>© 2026 Meyanak</p>
     </aside>
 
     <section class="feed" id="app">
       <div id="homeView">
-        <section class="stories card">
-          <article class="story create-story">
-            <div class="story-image gradient-one"><span class="plus">+</span></div>
-            <strong>Buat cerita</strong>
-          </article>
-          <article class="story">
-            <div class="story-image gradient-two"><span class="story-avatar">A</span></div>
-            <strong>Andi</strong>
-          </article>
-          <article class="story">
-            <div class="story-image gradient-three"><span class="story-avatar">S</span></div>
-            <strong>Salsa</strong>
-          </article>
-          <article class="story">
-            <div class="story-image gradient-four"><span class="story-avatar">R</span></div>
-            <strong>Raka</strong>
-          </article>
+        <section class="welcome card">
+          <div>
+            <h1>Ruang berbagi Meyanak</h1>
+            <p>Bagikan tulisan, gambar, atau video. Tentukan siapa yang boleh melihatnya.</p>
+          </div>
+          <button class="primary" id="openComposer">＋ Buat postingan</button>
         </section>
 
         <section class="composer card">
           <div class="composer-row">
-            <span class="avatar avatar-me">D</span>
-            <button class="composer-input" id="openComposer">Apa yang Anda pikirkan?</button>
+            <span class="avatar avatar-me" id="composerAvatar">?</span>
+            <button class="composer-input" id="openComposer2">Apa yang ingin Anda bagikan?</button>
           </div>
           <div class="composer-actions">
-            <button data-action="photo">▣ <span>Foto/Video</span></button>
-            <button data-action="feeling">☺ <span>Perasaan/Aktivitas</span></button>
-            <button data-action="event">◷ <span>Kegiatan</span></button>
+            <button data-action="open-photo">🖼️ <span>Gambar</span></button>
+            <button data-action="open-video">🎥 <span>Video</span></button>
+            <button data-action="open-text">✍️ <span>Tulisan</span></button>
           </div>
         </section>
-
         <div id="posts"></div>
+        <div id="emptyFeed" class="card empty hidden">Belum ada postingan yang dapat Anda lihat.</div>
       </div>
 
       <section id="genericView" class="card page-view hidden"></section>
@@ -87,31 +71,73 @@
 
     <aside class="right-col">
       <section class="card panel">
-        <div class="panel-title"><strong>Kontak</strong><button class="icon-btn">⌕</button></div>
-        <div class="contact"><span class="online">A</span><span>Andi Pratama</span></div>
-        <div class="contact"><span class="online">S</span><span>Salsa Putri</span></div>
-        <div class="contact"><span class="online">R</span><span>Raka Wijaya</span></div>
-        <div class="contact"><span class="avatar">N</span><span>Nadia Rahma</span></div>
+        <div class="panel-title"><strong>Orang Meyanak</strong><button class="text-btn" data-view="friends">Lihat semua</button></div>
+        <div id="contactList"></div>
       </section>
       <section class="card panel">
-        <div class="panel-title"><strong>Komunitas populer</strong><button class="text-btn" data-view="groups">Lihat semua</button></div>
-        <div class="group"><div class="group-icon">📚</div><div><b>Literasi & Buku</b><small>12,4 rb anggota</small></div></div>
-        <div class="group"><div class="group-icon">🎓</div><div><b>Pelajar Indonesia</b><small>8,7 rb anggota</small></div></div>
-        <div class="group"><div class="group-icon">💡</div><div><b>Ruang Gagasan</b><small>5,2 rb anggota</small></div></div>
+        <div class="panel-title"><strong>Status sistem</strong></div>
+        <div class="system-row"><span class="dot"></span><span>Database terpusat</span></div>
+        <div class="system-row"><span class="dot"></span><span>Storage media</span></div>
+        <div class="system-row"><span class="dot"></span><span>Row Level Security</span></div>
       </section>
     </aside>
   </main>
 
-  <div class="modal hidden" id="postModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal hidden" id="authModal" role="dialog" aria-modal="true">
     <div class="modal-box">
-      <div class="modal-head"><h3 id="modalTitle">Buat postingan</h3><button id="closeModal">×</button></div>
-      <div class="modal-author"><span class="avatar avatar-me">D</span><div><b>Dilan</b><small>Publik ▾</small></div></div>
-      <textarea id="postText" placeholder="Apa yang sedang Anda pikirkan?"></textarea>
-      <div class="attachment-box"><span>▧</span><div><b>Tambahkan ke postingan</b><small>Foto, video, atau aktivitas</small></div><button>+</button></div>
+      <div class="modal-head"><h3 id="authTitle">Masuk ke Meyanak</h3><button data-close="authModal">×</button></div>
+      <form id="authForm">
+        <label>Email<input id="authEmail" type="email" required autocomplete="email"></label>
+        <label>Password<input id="authPassword" type="password" required minlength="6" autocomplete="current-password"></label>
+        <label id="authNameWrap" class="hidden">Nama<input id="authName" autocomplete="name"></label>
+        <button class="publish" id="authSubmit">Masuk</button>
+      </form>
+      <p id="authSwitchText" class="muted center">Belum punya akun?</p>
+      <button class="link-btn" id="authSwitch">Daftar akun baru</button>
+      <p class="hint">Akun dan data disimpan di backend Supabase setelah konfigurasi selesai.</p>
+    </div>
+  </div>
+
+  <div class="modal hidden" id="postModal" role="dialog" aria-modal="true">
+    <div class="modal-box wide">
+      <div class="modal-head"><h3>Buat postingan</h3><button data-close="postModal">×</button></div>
+      <div class="modal-author"><span class="avatar avatar-me" id="modalAvatar">?</span><div><b id="modalName">Pengguna</b><small>Atur privasi di bawah</small></div></div>
+      <textarea id="postText" maxlength="10000" placeholder="Apa yang sedang Anda pikirkan?"></textarea>
+      <div class="privacy-row">
+        <label>Visibilitas
+          <select id="postVisibility">
+            <option value="public">🌐 Publik</option>
+            <option value="private">🔒 Hanya saya</option>
+          </select>
+        </label>
+      </div>
+      <div class="attachment-box">
+        <span>📎</span><div><b>Tambahkan media</b><small>Gambar atau video, maksimum 50 MB</small></div>
+        <input id="mediaInput" type="file" accept="image/*,video/*">
+      </div>
+      <div id="uploadPreview" class="upload-preview hidden"></div>
       <button class="publish" id="publishBtn">Posting</button>
     </div>
   </div>
 
+  <div class="modal hidden" id="commentsModal" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <div class="modal-head"><h3>Komentar</h3><button data-close="commentsModal">×</button></div>
+      <div id="commentsList" class="comments-list"></div>
+      <form id="commentForm" class="comment-form"><input id="commentText" placeholder="Tulis komentar…" required maxlength="1000"><button>➤</button></form>
+    </div>
+  </div>
+
+  <div class="modal hidden" id="messageModal" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <div class="modal-head"><h3>Pesan privat</h3><button data-close="messageModal">×</button></div>
+      <p id="messageTarget" class="muted"></p>
+      <form id="messageForm"><textarea id="messageText" required maxlength="5000" placeholder="Tulis pesan…"></textarea><button class="publish">Kirim pesan</button></form>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="app.js"></script>
 </body>
 </html>
