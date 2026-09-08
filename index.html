@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meyanak | Jejaring Sosial</title>
+  <meta name="description" content="Meyanak, jejaring sosial modern untuk terhubung, berbagi, dan berkomunitas.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-wrap">
+      <button class="brand" aria-label="Meyanak">M</button>
+      <div class="search">
+        <span>⌕</span><input id="globalSearch" placeholder="Cari di Meyanak" aria-label="Cari">
+      </div>
+    </div>
+    <nav class="topnav" aria-label="Navigasi utama">
+      <button class="nav-btn active" data-view="home">⌂<small>Beranda</small></button>
+      <button class="nav-btn" data-view="friends">♧<small>Teman</small></button>
+      <button class="nav-btn" data-view="groups">◉<small>Komunitas</small></button>
+      <button class="nav-btn" data-view="notifications">♢<small>Notifikasi</small><b id="notifBadge">3</b></button>
+    </nav>
+    <div class="account">
+      <button class="avatar avatar-me">D</button>
+      <span>Dilan</span>
+      <button class="circle-btn" id="menuBtn">⋯</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="left-col">
+      <button class="profile-link" data-view="profile">
+        <span class="avatar avatar-me">D</span><strong>Dilan</strong>
+      </button>
+      <button class="side-link" data-view="friends">♧ <span>Teman</span></button>
+      <button class="side-link" data-view="groups">◉ <span>Komunitas</span></button>
+      <button class="side-link" data-view="saved">▣ <span>Tersimpan</span></button>
+      <button class="side-link" data-view="events">◷ <span>Kegiatan</span></button>
+      <button class="side-link" data-view="market">▤ <span>Jelajah</span></button>
+      <hr>
+      <h4>Pintasan</h4>
+      <button class="shortcut"><i></i> Komunitas Pelajar</button>
+      <button class="shortcut"><i></i> Forum Buku & Gagasan</button>
+      <button class="shortcut"><i></i> Ruang Diskusi</button>
+      <p class="legal">Privasi · Ketentuan · Bantuan<br>© 2026 Meyanak</p>
+    </aside>
+
+    <section class="feed" id="app">
+      <div id="homeView">
+        <section class="stories card">
+          <article class="story create-story">
+            <div class="story-image gradient-one"><span class="plus">+</span></div>
+            <strong>Buat cerita</strong>
+          </article>
+          <article class="story">
+            <div class="story-image gradient-two"><span class="story-avatar">A</span></div>
+            <strong>Andi</strong>
+          </article>
+          <article class="story">
+            <div class="story-image gradient-three"><span class="story-avatar">S</span></div>
+            <strong>Salsa</strong>
+          </article>
+          <article class="story">
+            <div class="story-image gradient-four"><span class="story-avatar">R</span></div>
+            <strong>Raka</strong>
+          </article>
+        </section>
+
+        <section class="composer card">
+          <div class="composer-row">
+            <span class="avatar avatar-me">D</span>
+            <button class="composer-input" id="openComposer">Apa yang Anda pikirkan?</button>
+          </div>
+          <div class="composer-actions">
+            <button data-action="photo">▣ <span>Foto/Video</span></button>
+            <button data-action="feeling">☺ <span>Perasaan/Aktivitas</span></button>
+            <button data-action="event">◷ <span>Kegiatan</span></button>
+          </div>
+        </section>
+
+        <div id="posts"></div>
+      </div>
+
+      <section id="genericView" class="card page-view hidden"></section>
+    </section>
+
+    <aside class="right-col">
+      <section class="card panel">
+        <div class="panel-title"><strong>Kontak</strong><button class="icon-btn">⌕</button></div>
+        <div class="contact"><span class="online">A</span><span>Andi Pratama</span></div>
+        <div class="contact"><span class="online">S</span><span>Salsa Putri</span></div>
+        <div class="contact"><span class="online">R</span><span>Raka Wijaya</span></div>
+        <div class="contact"><span class="avatar">N</span><span>Nadia Rahma</span></div>
+      </section>
+      <section class="card panel">
+        <div class="panel-title"><strong>Komunitas populer</strong><button class="text-btn" data-view="groups">Lihat semua</button></div>
+        <div class="group"><div class="group-icon">📚</div><div><b>Literasi & Buku</b><small>12,4 rb anggota</small></div></div>
+        <div class="group"><div class="group-icon">🎓</div><div><b>Pelajar Indonesia</b><small>8,7 rb anggota</small></div></div>
+        <div class="group"><div class="group-icon">💡</div><div><b>Ruang Gagasan</b><small>5,2 rb anggota</small></div></div>
+      </section>
+    </aside>
+  </main>
+
+  <div class="modal hidden" id="postModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box">
+      <div class="modal-head"><h3 id="modalTitle">Buat postingan</h3><button id="closeModal">×</button></div>
+      <div class="modal-author"><span class="avatar avatar-me">D</span><div><b>Dilan</b><small>Publik ▾</small></div></div>
+      <textarea id="postText" placeholder="Apa yang sedang Anda pikirkan?"></textarea>
+      <div class="attachment-box"><span>▧</span><div><b>Tambahkan ke postingan</b><small>Foto, video, atau aktivitas</small></div><button>+</button></div>
+      <button class="publish" id="publishBtn">Posting</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
